@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Hotline newsletter </string>
+
+    <string name="delele_confirm">Confirm delete this information?</string>
+    <string name="okay">sure</string>
+    <string name="at_tv_name">NAME:</string>
+    <string name="at_tv_phone">PHONE:</string>
+    <string name="at_tv_email">EMAIL:</string>
+
+    <string name="at_et_name">Please type in your name</string>
+    <string name="at_et_phome">(02)1234</string>
+    <string name="at_et_email">1234@xyz.com</string>
+    <string name="cancel">cancel</string>
+</resources>
