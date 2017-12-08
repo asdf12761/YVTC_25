@@ -121,15 +121,27 @@ public class MainActivity extends AppCompatActivity {
                 break;
 //刪除Button
                 case R.id.btn_delete:
-                    if (db.delete(myid)) {
-                        cursor = db.getALL();
-                        UpdateAdapter(cursor);
-                        clearedit();
-                    }
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                    dialog.setMessage(R.string.delele_confirm);
+                    dialog.setNegativeButton(R.string.okay,new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            if (db.delete(myid)) {
+                                cursor = db.getALL();
+                                UpdateAdapter(cursor);
+                                clearedit();
+                            }
+                        }
+                    });
+                    dialog.setNeutralButton(R.string.cancel,new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
+                        }
+                    });
+                    dialog.show();
                     break;
             }
         }
-
         private void clearedit() {
 // TODO Auto-generated method stub
             et1.setText("");
@@ -144,9 +156,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
             new AlertDialog.Builder(MainActivity.this)
-                    .setTitle("確認視窗")
-                    .setMessage("確定要結束應用程式嗎?")
-                    .setPositiveButton("確定",
+                    .setTitle(R.string.check)
+                    .setMessage(R.string.exit_confirm)
+                    .setPositiveButton(R.string.okay,
                             new DialogInterface.OnClickListener() {
 
                                 @Override
@@ -155,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
                                     finish();
                                 }
                             })
-                    .setNegativeButton("取消",
+                    .setNegativeButton(R.string.cancel,
                             new DialogInterface.OnClickListener() {
 
                                 @Override
