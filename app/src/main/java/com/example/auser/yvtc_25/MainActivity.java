@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
             Log.d("mylog","serch："+ cursor.getString(3));
         }
     };
-
     @Override
     protected void onDestroy() {
 // TODO Auto-generated method stub
@@ -123,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.btn_delete:
                     AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
                     dialog.setMessage(R.string.delele_confirm);
-                    dialog.setNegativeButton(R.string.okay,new DialogInterface.OnClickListener() {
+                    dialog.setNeutralButton(R.string.okay,new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface arg0, int arg1) {
                             if (db.delete(myid)) {
@@ -133,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                     });
-                    dialog.setNeutralButton(R.string.cancel,new DialogInterface.OnClickListener() {
+                    dialog.setNegativeButton(R.string.cancel,new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface arg0, int arg1) {
                         }
@@ -158,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle(R.string.check)
                     .setMessage(R.string.exit_confirm)
-                    .setPositiveButton(R.string.okay,
+                    .setNeutralButton(R.string.okay,
                             new DialogInterface.OnClickListener() {
 
                                 @Override
